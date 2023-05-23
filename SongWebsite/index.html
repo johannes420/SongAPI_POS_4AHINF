@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Song Website</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="card" id="inputCard">
+        
+        <div id="topContainer">
+            <label class="validation-error hide" id="titleValidationError">This field is required.</label>
+            <input class="inputs" type="text" placeholder="Title" name="titel" id="titel" required>
+        </div>
+
+        <div>
+            <label class="validation-error hide" id="artistValidationError">This field is required.</label>
+            <input class="inputs" type="text" placeholder="Artist" name="artist" id="artist" required>
+        </div>
+
+        <div>
+           <label class="validation-error hide" id="genreValidationError">This field is required.</label>
+            <input class="inputs"  type="text" placeholder="Genre" name="genre" id="genre" required>
+        </div>
+
+        <div>
+           <label class="validation-error hide" id="albumValidationError">This field is required.</label>
+            <input class="inputs" type="text" placeholder="Album" name="album" id="album" disabled>
+        </div>
+        <input type="checkbox" name="hasAlbum" id="hasAlbum" onchange="toggleAlbumInput()">
+        <div class="form-action-buttons">
+            <button id="submitButton" type="button" onclick="onFormSubmit()">Submit</button>
+        
+        </div>
+        <button id="loadButton" onclick="loadData()">Load</button>
+    </div>
+
+
+    <div class="card" id="tableCard" style="border-radius: 15px;">
+        <table class="list" id="songList">
+            <thead>
+                <tr>
+                    <th style="display: none;">id</th>
+                    <th>Title</th>
+                    <th>Artist</th>
+                    <th>Genre</th>
+                    <th>Album</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+
+
+    
+                
+           
+    
+    <script src="script.js"></script>
+</body>
+</html>
