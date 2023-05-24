@@ -1,4 +1,4 @@
-const { json } = require("express/lib/response");
+// const { json } = require("express/lib/response");
 
 var selectedRow = null;
 
@@ -13,7 +13,7 @@ function onFormSubmit() {
         else{
             updateRecord(formData);
             resetForm();
-            loadData();
+           
     }
     }
 }
@@ -73,11 +73,51 @@ function insertNewRecord(data) {
     cell5.innerHTML = data.album;
 
     var cell6 = newRow.insertCell(5);
-    cell6.innerHTML = `<button onClick="onEdit(this)">Edit</button> 
-    <button onClick="onDelete()">Delete</button>`;
+    cell6.innerHTML = `<button style=" margin-left: -1%; margin-top: -20px; height: 20px; width: 55px;" onClick="onEdit(this)">Edit</button> 
+    <button style=" margin-top: 5px; margin-left: -1%; height: 20px; width: 55px" onClick="onDelete()">Delete</button>`;
+
+    newRow.addEventListener('click', function() {
+        openItemWindow(data);
+    });
 }
 
+function openItemWindow(data) {
+    var clickedCellIndex = event.target.cellIndex;
+    if (clickedCellIndex < 5) {
+        // Create a new <div> element
+        var itemWindow = document.createElement('div');
+        itemWindow.classList.add('item-window');
 
+        // Generate the HTML content for the item details
+        var content =  "<p><strong>Title:</strong> " + data.artist + "</p>" +
+                      "<p><strong>Artist:</strong> " + data.artist + "</p>" +
+                      "<p><strong>Genre:</strong> " + data.genre + "</p>" +
+                      "<p><strong>Album:</strong> " + data.album + "</p>";
+
+        // Set the HTML content of the <div>
+        itemWindow.innerHTML = content;
+
+        // Create a close button
+        var closeButton = document.createElement('button');
+        closeButton.innerText = 'X';
+        closeButton.style.width = "20px";
+        closeButton.style.height = "20px";
+        closeButton.style.position = "absolute";
+        closeButton.style.top = "10px";
+        closeButton.style.left = "282px"
+
+        closeButton.addEventListener('click', function() {
+            // Remove the item window when the close button is clicked
+            itemWindow.remove();
+        });
+
+        // Append the close button to the item window
+        itemWindow.appendChild(closeButton);
+
+        // Append the <div> to the document body
+        document.body.appendChild(itemWindow);
+    }
+}
 
 function resetForm() {
     document.getElementById("titel").value = "";
@@ -99,10 +139,12 @@ function onEdit(td) {
         document.getElementById("hasAlbum").checked = false;
         document.getElementById("album").value = "";
         document.getElementById("album").disabled = true;
+        document.getElementById("album").style.opacity = 0.5;
     } else {
         document.getElementById("hasAlbum").checked = true;
         document.getElementById("album").value = albumCell.innerHTML;
         document.getElementById("album").disabled = false;
+        document.getElementById("album").style.opacity = 1;
     }
 }
 
@@ -120,10 +162,13 @@ function updateRecord(formData) {
     .then(response => response.json())
     .then(data => {
         console.log('Daten erfolgreich an die API gesendet:', data);
+        loadData();
     })
     .catch(error => {
         console.log('Fehler beim Senden der Daten an die API:', error);
+        loadData();
     });
+    
 }
 
 
@@ -150,49 +195,19 @@ function onDelete() {
 
 
 function validate() {
-    var isValid = true;
     var titleInput = document.getElementById("titel");
     var artistInput = document.getElementById("artist");
     var genreInput = document.getElementById("genre");
     var hasAlbumCheckbox = document.getElementById("hasAlbum");
     var albumInput = document.getElementById("album");
-
-    if (titleInput.value === "") {
+    var isValid = true;
+    var errorMessage = "Fill in all fields.";
+    
+    if (titleInput.value === "" || artistInput.value === "" || genreInput.value === "" || (hasAlbumCheckbox.checked && albumInput.value === "")) {
         isValid = false;
-        document.getElementById("titleValidationError").classList.remove("hide");
-    } else {
-        if (!document.getElementById("titleValidationError").classList.contains("hide")) {
-            document.getElementById("titleValidationError").classList.add("hide");
-        }
+        alert(errorMessage);
     }
-
-    if (artistInput.value === "") {
-        isValid = false;
-        document.getElementById("artistValidationError").classList.remove("hide");
-    } else {
-        if (!document.getElementById("artistValidationError").classList.contains("hide")) {
-            document.getElementById("artistValidationError").classList.add("hide");
-        }
-    }
-
-    if (genreInput.value === "") {
-        isValid = false;
-        document.getElementById("genreValidationError").classList.remove("hide");
-    } else {
-        if (!document.getElementById("genreValidationError").classList.contains("hide")) {
-            document.getElementById("genreValidationError").classList.add("hide");
-        }
-    }
-
-    if (hasAlbumCheckbox.checked && albumInput.value === "") {
-        isValid = false;
-        document.getElementById("albumValidationError").classList.remove("hide");
-    } else {
-        if (!document.getElementById("albumValidationError").classList.contains("hide")) {
-            document.getElementById("albumValidationError").classList.add("hide");
-        }
-    }
-
+    
     return isValid;
 }
 
@@ -201,9 +216,11 @@ function toggleAlbumInput() {
     var albumInput = document.getElementById("album");
     if (document.getElementById("hasAlbum").checked) {
         albumInput.disabled = false;
+        albumInput.style.opacity = 1;
     } else {
         albumInput.value = "";
         albumInput.disabled = true;
+        albumInput.style.opacity = 0.5;
     }
 }
 
