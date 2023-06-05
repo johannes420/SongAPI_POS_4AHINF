@@ -343,18 +343,36 @@ function onDelete() {
 	
 ##### Parameters
 	
-> | name      |  type     | data type               | description                                                           |
-> |-----------|-----------|-------------------------|-----------------------------------------------------------------------|
-> | None      |  required | object (JSON or YAML)   | N/A  |
+> |  type     | data type               |
+> |-----------|-------------------------|
+> |  required | object (JSON or YAML)   |
 	
 ##### Responses
 	
+> | http code     | response                                                            |
+> |---------------|---------------------------------------------------------------------|
+> | `201`         | `Song has been added successfully.`                                 |
+> | `400`         | `{"code":"400","message":"Bad Request"}`                            |
+	
+</details>
+
+<details>
+ <summary><code>GET</code> <code><b>/getAllSongs</b></code> </summary>
+  
+##### Parameters
+  
+> | name      |  type     | data type               | description                                                           |
+> |-----------|-----------|-------------------------|-----------------------------------------------------------------------|
+> | None      |  required | object (JSON or YAML)   | N/A  |
+  
+  
+##### Responses
+  
 > | http code     | content-type                      | response                                                            |
 > |---------------|-----------------------------------|---------------------------------------------------------------------|
 > | `201`         | `text/plain;charset=UTF-8`        | `Configuration created successfully`                                |
 > | `400`         | `application/json`                | `{"code":"400","message":"Bad Request"}`                            |
-> | `405`         | `text/html;charset=utf-8`         | None                                                                |
-	
+
 </details>
 
 ## Diskussion
