@@ -1,4 +1,4 @@
-#SongAPI
+# SongAPI
 Bei diesen Projekt handelt es sich um das Semesterprojekt für POS in der 4 AHINF. Die Anforderungen waren es eine API zu entwickeln auf die 2 Clients zugreifen. Die Clients sollen dabei eine Webseite und eine WPF-App sein. 
 
 Bei meiner Idee handelt es sich um eine einfache Song API bei der es möglich ist mithilfe der Website oder der WPF-App die Daten seiner Lieblingssongs zu erfassen und diese dann in der API zu speichern.
