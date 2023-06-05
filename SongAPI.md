@@ -16,7 +16,7 @@ Bei meiner Idee handelt es sich um eine einfache Song API bei der es möglich is
 
 graph LR
 
-A(Web-App) -- zeigt und ändert Daten --> C
+A(Webseite) -- zeigt und ändert Daten --> C
 
 B(WPF-App) -- zeigt und ändert Daten --> C
 
