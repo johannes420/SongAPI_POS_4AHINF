@@ -338,5 +338,18 @@ function onDelete() {
 
 ## API-Beschreibung
 
+<details>
+ <summary><code>POST</code> <code><b>/addSong</b></code></summary>
+##### Parameters
+> | name      |  type     | data type               | description                                                           |
+> |-----------|-----------|-------------------------|-----------------------------------------------------------------------|
+> | None      |  required | object (JSON or YAML)   | N/A  |
+##### Responses
+> | http code     | content-type                      | response                                                            |
+> |---------------|-----------------------------------|---------------------------------------------------------------------|
+> | `201`         | `text/plain;charset=UTF-8`        | `Configuration created successfully`                                |
+> | `400`         | `application/json`                | `{"code":"400","message":"Bad Request"}`                            |
+> | `405`         | `text/html;charset=utf-8`         | None                                                                |
+</details>
 
 ## Diskussion
