@@ -8,7 +8,6 @@ Bei meiner Idee handelt es sich um eine einfache Song API bei der es möglich is
 - [Softwaredesign](#softwaredesign)
 - [Beschreibung der Software](#beschreibung-der-software)
 - [API Beschreibung](#api-beschreibung)
-- [Diagramm](#diagramm)
 - [Diskussion](#diskussion)
 
 ## Softwaredesign
