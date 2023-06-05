@@ -1,0 +1,38 @@
+.item-window{
+    background-color: #eeeeee;
+}
+
+.card{
+    background-color: #f2f2f2;
+}
+
+body{
+  background-color: #fafafa;
+}
+
+.inputs{
+    background: #ffffff;
+    border: 2px solid #dfdfdf; 
+}
+
+button{
+    background-color: #ffffff;
+    border: 2px solid #dfdfdf;
+    border-radius: 8px;
+}
+
+button:active{
+    background-color: #ececec;
+}
+
+table{
+    background-color: #f2f2f2;
+}
+
+thead{
+    background-color: #d2d2d2;
+}
+
+tr:nth-child(even){
+    background-color:#eaeaea ;
+}
