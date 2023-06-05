@@ -343,9 +343,7 @@ function onDelete() {
 	
 ##### Parameters
 	
-> |  type     | data type               |
-> |-----------|-------------------------|
-> |  required | object (JSON or YAML)   |
+> no parameters required
 	
 ##### Responses
 	
@@ -360,19 +358,94 @@ function onDelete() {
  <summary><code>GET</code> <code><b>/getAllSongs</b></code> </summary>
   
 ##### Parameters
-  
-> | name      |  type     | data type               | description                                                           |
-> |-----------|-----------|-------------------------|-----------------------------------------------------------------------|
-> | None      |  required | object (JSON or YAML)   | N/A  |
-  
-  
+	
+> no parameters required
+	
 ##### Responses
-  
-> | http code     | content-type                      | response                                                            |
-> |---------------|-----------------------------------|---------------------------------------------------------------------|
-> | `201`         | `text/plain;charset=UTF-8`        | `Configuration created successfully`                                |
-> | `400`         | `application/json`                | `{"code":"400","message":"Bad Request"}`                            |
+	
+> | http code     | response                                                            |
+> |---------------|---------------------------------------------------------------------|
+> | `201`         | `JSON string aller Songs`                                 		|
+> | `400`         | `{"code":"400","message":"Bad Request"}`                            |
 
+##### JSON example
+```
+{
+        "id": "6476f756583a1204fde1651b",
+        "titel": "Smells like Teen Spirit",
+        "artist": "Nirvana",
+        "genre": "Grunge",
+	"album": "Nevermind"
+}
+```
+	
+</details>
+
+<details>
+ <summary><code>GET</code> <code><b>/getSong/{id}</b></code> </summary>
+  
+##### Parameters
+	
+> |  name     |  type     | data type               |
+> |-----------|-----------|-------------------------|
+> |  id       |  string   | object (JSON or YAML)   |
+	
+##### Responses
+	
+> | http code     | response                                                            |
+> |---------------|---------------------------------------------------------------------|
+> | `201`         | `JSON string des ausgewählten Songs`                                |
+> | `400`         | `{"code":"400","message":"Bad Request"}`                            |
+
+##### JSON example
+```
+{
+        "id": "6476f756583a1204fde1651b",
+        "titel": "Smells like Teen Spirit",
+        "artist": "Nirvana",
+        "genre": "Grunge",
+	"album": "Nevermind"
+}
+```
+	
+</details>
+
+<details>
+ <summary><code>PUT</code> <code><b>/updateSong/{id}</b></code> </summary>
+  
+##### Parameters
+	
+> |  name     |  type     | data type               |
+> |-----------|-----------|-------------------------|
+> |  id       |  string   | object (JSON or YAML)   |
+	
+##### Responses
+	
+> | http code     | response                                                            |
+> |---------------|---------------------------------------------------------------------|
+> | `201`         | `Song has been updated successfully.`                               |
+> | `400`         | `{"code":"400","message":"Bad Request"}`                            |
+
+	
+</details>
+
+<details>
+ <summary><code>DELETE</code> <code><b>/deleteSong/{id}</b></code> </summary>
+  
+##### Parameters
+	
+> |  name     |  type     | data type               |
+> |-----------|-----------|-------------------------|
+> |  id       |  string   | object (JSON or YAML)   |
+	
+##### Responses
+	
+> | http code     | response                                                            |
+> |---------------|---------------------------------------------------------------------|
+> | `201`         | `Song has been deleted successfully.`                               |
+> | `400`         | `{"code":"400","message":"Bad Request"}`                            |
+
+	
 </details>
 
 ## Diskussion
