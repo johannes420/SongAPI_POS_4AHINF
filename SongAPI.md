@@ -448,3 +448,6 @@ function onDelete() {
 </details>
 
 ## Diskussion
+Das Endprodukt dieses Projekts ist eine Spring Boot Applikation, die über eine API Anfragen entgegennimmt. Die Applikation ist mit einer MongoDB Datenbank verbunden, in der Songs gespeichert werden. Sowohl die Webseite als auch die WPF-Anwendung dienen der Veranschaulichung der Songs. Über beide Schnittstellen können Songs hinzugefügt, geändert, gelöscht und angezeigt werden, wobei die Darstellung auf der Webseite übersichtlicher formatiert ist.
+
+Die Entscheidung fiel auf die Verwendung von Vanilla HTML, CSS und JavaScript für die Erstellung der Webseite. Durch den Einsatz von Vanilla-Webtechnologien konnte schnell eine funktionierende Webseite erstellt werden, die als solide Grundlage für weitere Entwicklungen dient. Spring Boot wurde gewählt, da bereits Erfahrung damit vorhanden war und es im Unterricht häufig verwendet wurde.
